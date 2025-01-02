@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+{% load static %}
+<html>
+  <head>
+    <title>areg</title>
+    <meta charset="utf-8">
+    <link href="{% static 'areg.css' %}"type="text/css" rel="stylesheet"> 
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head> 
+<body > 
+<h1 align="center">Admin Registration</h1>
+<h2 style="color:red" align="center">{{msg}}</h2>
+
+    <div class="wrapper">
+      <form action="{% url 'insertdata' %}" method="POST">
+         {% csrf_token %}
+        
+            <div class="box">
+          <label for="fullName" class="fl fontLabel"> Full Name: </label>
+                <div class="new iconBox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+                <div class="fr">
+                        <input type="text" name="fname" placeholder="Full Name"
+              class="textBox" autofocus="on" required>
+                </div>
+                <div class="clr"></div>
+            </div>
+
+            <div class="box">
+          <label for="phone" class="fl fontLabel"> Phone No.: </label>
+                <div class="fl iconBox"><i class="fa fa-phone-square" aria-hidden="true"></i></div>
+                <div class="fr">
+                        <input type="text" required name="phone" maxlength="10" placeholder="Phone No." class="textBox">
+                </div>
+                <div class="clr"></div>
+            </div>
+           
+
+
+            
+            <div class="box">
+          <label for="email" class="fl fontLabel"> Email ID: </label>
+                <div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                <div class="fr">
+                        <input type="email" required name="email" placeholder="Email Id" class="textBox">
+                </div>
+                <div class="clr"></div>
+            </div>
+            
+
+
+            
+            <div class="box">
+          <label for="password" class="fl fontLabel"> Password </label>
+                <div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+                <div class="fr">
+                        <input type="Password" required name="password" placeholder="Password" class="textBox">
+                </div>
+                <div class="clr"></div>
+            </div>
+            
+
+            
+            <div class="box">
+          <label for="Confirm password" class="fl fontLabel"> Confirm password</label>
+                <div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+                <div class="fr">
+                        <input type="Password" name="cpassword"  required  placeholder="Confirm password" class="textBox">
+                </div>
+                <div class="clr"></div>
+            </div>
+            <br>
+
+            
+           <!--  <div class="box">
+          <label for="Address" class="fl fontLabel"> Address </label>
+                <div class="fl iconBox"><i class="fa fa-user" aria-hidden="true"></i></div>
+                <div class="fr">
+                        <input type="text" required name="tadd"
+              placeholder="Address" class="textBox">
+                </div>
+                <div class="clr"></div>
+            </div>
+            
+
+          
+
+         
+            
+            <div class="box radio">
+          <label for="gender" class="fl fontLabel"> Gender: </label>
+                    <input type="radio" name="n1" value="Male" required> Male &nbsp; &nbsp; &nbsp;
+                    <input type="radio" name="n1" value="Female" required> Female
+            </div>
+            
+            <tr>
+      <td><input type="file" name="upload_image"></td>
+    </tr>
+ -->
+
+            
+            <div class="box terms">
+                    <input type="checkbox" required> &nbsp; I accept the terms and conditions
+            </div>
+            
+
+
+
+            
+            <div class="box" style="background: #2d3e3f">
+                    <input type="submit" class="submit" value="SUBMIT">
+            </div>
+            
+            <tr>
+      <td><a class="btn btn-danger btn-sm" style="border-radius: 0px;" href="{% url 'alog' %}" role="button">Login form</a></td>
+    </tr>
+    </form>
+    </div>
+{% endblock %}
+</body>
+</html>

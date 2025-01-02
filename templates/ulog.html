@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+{% load static %}
+
+<html>
+  <head>
+    <title>User Login</title>
+    <meta charset="utf-8">
+    
+    <link href="{% static 'areg.css' %}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    
+  
+<h1 align="center">User Login</h1>
+<h2 style="color:red" align="center">{{msg}}</h2>
+<h2 style="color:green" align="center">{{msgg}}</h2>
+<div class="wrapper">
+      <form action="{% url 'ulogin' %}" method="POST">
+         {% csrf_token %}
+        
+            <div class="box">
+          <label for="fullName" class="fl fontLabel"> Email or Phone  </label>
+                <div class="new iconBox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+
+    <!-- Body of Form starts ---> 
+    
+                <div class="fr">
+                        <input type="text" name="email" placeholder="Email or Phone"
+              class="textBox" autofocus="on" required>
+                </div>
+                <div class="clr"></div>
+            </div>
+
+        
+            <!---Password------>
+            <div class="box">
+          <label for="password" class="fl fontLabel"> Password </label>
+                <div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+                <div class="fr">
+                        <input type="Password" required name="password" placeholder="Password" class="textBox">
+                </div>
+                <div class="clr"></div>
+            </div>
+            <!---Password---->
+
+            
+
+
+            <!--Terms and Conditions------>
+            <div class="box terms">
+                    <input type="checkbox" required> &nbsp; I accept the terms and conditions
+            </div>
+            <!--Terms and Conditions------>
+
+
+
+            <!---Submit Button------>
+            <div class="box" style="background: #2d3e3f">
+                    <input type="Submit" class="submit" value="Login">
+            </div>
+            <!---Submit Button----->
+             <tr>
+          <td><a class="btn btn-danger btn-sm" style="border-radius: 0px;" href="{% url 'ureg' %}" role="button">Registation form</a></td></tr>
+
+  </form>
+  </div>
+  <!--Body of Form ends--->
+
+
+  
+  {% endblock %}
+  </body>
+</html>
+
+
